@@ -4,9 +4,9 @@
 
 ## Review Checklist
 
-- [ ] **Frontend Polish:**
-    - [ ] The chat bubble is draggable.
-    - [ ] Connection status is clearly displayed.
+- [x] **Frontend Polish:**
+    - [x] The chat bubble is draggable.
+    - [x] Connection status is clearly displayed.
 - [ ] **Admin Features:**
     - [ ] An admin can log in to the admin section.
     - [ ] An admin can successfully upload a new knowledge document, and the chatbot can use it.

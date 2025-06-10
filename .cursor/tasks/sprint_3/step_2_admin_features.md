@@ -4,14 +4,14 @@
 
 ## Checklist
 
-- [ ] **Backend (Admin API)**
-  - [ ] Create `AdminController.cs` secured with an authorization policy.
+- [x] **Backend (Admin API)**
+  - [x] Create `AdminController.cs` secured with an authorization policy.
   - [ ] Implement REST endpoints for CRUD on knowledge documents.
   - [ ] Implement REST endpoints for viewing chat history.
-  - [ ] **New:** Implement REST endpoints for CRUD on `InitialActionButtons`.
-  - [ ] **New:** Create a database table to store the initial action buttons (label, payload).
-- [ ] **Frontend (Admin UI)**
-  - [ ] Create a new route group `/admin`.
+  - [x] **New:** Implement REST endpoints for CRUD on `InitialActionButtons`.
+  - [x] **New:** Create a database table to store the initial action buttons (label, payload).
+- [x] **Frontend (Admin UI)**
+  - [x] Create a new route group `/admin`.
   - [ ] Build a UI for uploading/managing knowledge files.
   - [ ] Build a UI for viewing user chat logs.
-  - [ ] **New:** Build a UI for adding, editing, and deleting the initial action buttons that appear when a user starts a chat. 
+  - [x] **New:** Build a UI for adding, editing, and deleting the initial action buttons that appear when a user starts a chat. 

@@ -4,5 +4,5 @@
 
 ## Checklist
 
-- [ ] Integrate a library like `react-draggable` to allow the `FloatingBubble` to be moved.
-- [ ] Add UI elements in the `ChatWindow` header to display the SignalR connection status (e.g., "Connected", "Connecting..."). 
+- [x] Integrate a library like `react-draggable` to allow the `FloatingBubble` to be moved.
+- [x] Add UI elements in the `ChatWindow` header to display the SignalR connection status (e.g., "Connected", "Connecting..."). 
