@@ -4,12 +4,12 @@
 
 ## Checklist
 
-- [ ] **Unread Badge:**
-  - [ ] Implement `unreadCount` state in the `useChat` hook.
-  - [ ] Render a badge on the `FloatingBubble` based on the `unreadCount`.
-- [ ] **Cancellation UI:**
-  - [ ] Implement a `loading` or `isQueryInProgress` state in the `useChat` hook.
-  - [ ] When this state is true, display a "Cancel" button in the chat interface.
-  - [ ] When the "Cancel" button is clicked, call the `CancelRequest` method on the SignalR hub.
-- [ ] **(Optional) Rich Components:**
-  - [ ] Define a JSON structure for rich components (e.g., data tables) and render them dynamically. 
+- [x] **Unread Badge:**
+  - [x] Implement `unreadCount` state in the `useChat` hook.
+  - [x] Render a badge on the `FloatingBubble` based on the `unreadCount`.
+- [x] **Cancellation UI:**
+  - [x] Implement a `loading` or `isQueryInProgress` state in the `useChat` hook.
+  - [x] When this state is true, display a "Cancel" button in the chat interface.
+  - [x] When the "Cancel" button is clicked, call the `CancelRequest` method on the SignalR hub.
+- [x] **(Optional) Rich Components:**
+  - [x] Define a JSON structure for rich components (e.g., data tables) and render them dynamically. 

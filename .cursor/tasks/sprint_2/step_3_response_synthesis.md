@@ -4,5 +4,5 @@
 
 ## Checklist
 
-- [ ] Before calling the planner, fetch the message exchanges for the current `UserId` from the last X days from SQL Server.
-- [ ] Prepend this chat history to the goal provided to the planner to give it conversational context. 
+- [x] Before calling the planner, fetch the message exchanges for the current `UserId` from the last X days from SQL Server.
+- [x] Prepend this chat history to the goal provided to the planner to give it conversational context. 

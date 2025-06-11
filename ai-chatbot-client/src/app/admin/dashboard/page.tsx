@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import InitialActionsManager from '@/app/components/InitialActionsManager';
+import KnowledgeManager from '@/app/components/Admin/KnowledgeManager';
+import ChatHistoryViewer from '@/app/components/Admin/ChatHistoryViewer';
 
 const AdminDashboard = () => {
     const router = useRouter();
@@ -29,7 +31,7 @@ const AdminDashboard = () => {
                 } else {
                     setMessage('Failed to fetch health status.');
                 }
-            } catch (err) {
+            } catch {
                 setMessage('An error occurred.');
             }
         };
@@ -60,6 +62,8 @@ const AdminDashboard = () => {
                             <p>Backend Health Check: <span className="font-mono bg-gray-200 p-1 rounded">{message}</span></p>
                             
                             <InitialActionsManager />
+                            <KnowledgeManager />
+                            <ChatHistoryViewer />
                             
                             {/* TODO: Add widgets for managing knowledge, and chats */}
                         </div>

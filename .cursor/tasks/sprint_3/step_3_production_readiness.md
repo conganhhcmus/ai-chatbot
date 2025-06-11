@@ -4,9 +4,9 @@
 
 ## Checklist
 
-- [ ] **Security:**
-  - [ ] Move all secrets from User Secrets to environment variables or Azure Key Vault.
-- [ ] **Logging:**
-  - [ ] Integrate Serilog for structured logging of key events and errors.
-- [ ] **Scalability:**
-  - [ ] Add and configure a Redis backplane for SignalR to support horizontal scaling. 
+- [x] **Security:**
+  - [x] Move all secrets from User Secrets to environment variables or Azure Key Vault.
+- [x] **Logging:**
+  - [x] Integrate Serilog for structured logging of key events and errors.
+- [x] **Scalability:**
+  - [x] Add and configure a Redis backplane for SignalR to support horizontal scaling. 

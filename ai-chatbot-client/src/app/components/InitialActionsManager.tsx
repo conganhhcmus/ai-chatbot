@@ -33,8 +33,12 @@ const InitialActionsManager = () => {
             }
             const data = await response.json();
             setButtons(data);
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(err.message);
+            } else {
+                setError('An unknown error occurred.');
+            }
         } finally {
             setIsLoading(false);
         }
@@ -66,8 +70,12 @@ const InitialActionsManager = () => {
 
             // Refresh the list
             fetchButtons();
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(err.message);
+            } else {
+                setError('An unknown error occurred during deletion.');
+            }
         }
     };
 
@@ -96,8 +104,12 @@ const InitialActionsManager = () => {
             // Refresh list and reset form
             fetchButtons();
             handleCancel();
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(err.message);
+            } else {
+                setError('An unknown error occurred while saving.');
+            }
         }
     };
 

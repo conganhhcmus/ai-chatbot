@@ -32,6 +32,7 @@ namespace AI.Chatbot.Server.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
+        public DbSet<ChatMessage> ChatMessages { get; set; }
         public DbSet<InitialActionButton> InitialActionButtons { get; set; }
         public DbSet<KnowledgeDocument> KnowledgeDocuments { get; set; }
         public DbSet<Prompt> Prompts { get; set; }
