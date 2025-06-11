@@ -1,16 +1,21 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useUserId } from '../../../hooks/useUserId';
-import { useChat } from '../../../hooks/useChat';
+import { useUserId } from '@/hooks/useUserId';
+import { useChat } from '@/hooks/useChat';
 import FloatingBubble from './FloatingBubble';
 import ChatWindow from './ChatWindow';
 
 const Chat: React.FC = () => {
     const userId = useUserId();
+    // if (!userId) return null;
+
     const { messages, sendMessage, isQueryInProgress, cancelRequest, language, setLanguage } = useChat(userId);
     const [isOpen, setIsOpen] = useState(false);
     const [unreadCount, setUnreadCount] = useState(0);
+
+    // Typing indicator logic
+    const isBotTyping = isQueryInProgress && messages.length > 0 && messages[messages.length - 1].user === 'User';
 
     useEffect(() => {
         if (!isOpen && messages.length > 0 && messages[messages.length - 1].user === 'Bot') {
@@ -31,11 +36,10 @@ const Chat: React.FC = () => {
             {isOpen && <ChatWindow
                 messages={messages}
                 onSendMessage={sendMessage}
-                onClose={handleToggleChat}
+                onMinimize={handleToggleChat}
                 isQueryInProgress={isQueryInProgress}
                 onCancel={cancelRequest}
-                language={language}
-                onLanguageChange={setLanguage}
+                isBotTyping={isBotTyping}
             />}
         </div>
     );

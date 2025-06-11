@@ -7,7 +7,7 @@ services:
       - "1433:1433"
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=yourStrong(!)Password
+      - SA_PASSWORD=!1234567890aA
     volumes:
       - sql_server_data:/var/opt/mssql
   qdrant-db:
@@ -38,9 +38,9 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:8081;http://+:8080
-      - "ConnectionStrings__DefaultConnection=Server=sql-server-db;Database=AIChatbot;User Id=sa;Password=yourStrong(!)Password;TrustServerCertificate=true"
+      - "ConnectionStrings__DefaultConnection=Server=sql-server-db;Database=AIChatbot;User Id=sa;Password=!1234567890aA;TrustServerCertificate=true"
       - "ConnectionStrings__Redis=redis:6379"
-      - "OpenAI__ApiKey=your-openai-api-key" # Replace with your actual key
+      - "OpenAI__ApiKey=2emWFdiV3Ck40L6LO6dX"
     depends_on:
       - sql-server-db
       - qdrant-db

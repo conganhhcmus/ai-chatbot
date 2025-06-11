@@ -11,36 +11,37 @@ interface Message {
   type: 'text' | 'buttons' | 'table';
   content: MessageContent;
   user: string;
+  timestamp?: string;
 }
 interface ChatWindowProps {
   messages: Message[];
   onSendMessage: (message: string) => void;
-  onClose: () => void;
+  onMinimize: () => void;
   isQueryInProgress: boolean;
   onCancel: () => void;
-  language: string;
-  onLanguageChange: (language: string) => void;
+  isBotTyping: boolean;
 }
 
-const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onSendMessage, onClose, isQueryInProgress, onCancel, language, onLanguageChange }) => {
+const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onSendMessage, onMinimize, isQueryInProgress, onCancel, isBotTyping }) => {
   return (
-    <div className="fixed bottom-24 right-4 w-96 h-1/2 bg-white rounded-lg shadow-lg flex flex-col">
-      <div className="p-4 bg-gray-700 text-white rounded-t-lg flex justify-between items-center">
-        <h2 className="text-lg">Chat with us</h2>
-        <div>
-            <select
-                value={language}
-                onChange={(e) => onLanguageChange(e.target.value)}
-                className="bg-gray-600 text-white p-1 rounded"
-            >
-                <option value="en-US">English</option>
-                <option value="es-ES">Español</option>
-            </select>
-            <button onClick={onClose} className="text-white ml-4">&times;</button>
-        </div>
+    <div className="fixed bottom-8 right-8 w-96 max-w-full h-[500px] bg-white rounded-2xl shadow-2xl flex flex-col border border-blue-100 z-50 animate-fade-in"
+      role="dialog"
+      aria-label="Chat with Virtual assistant"
+      tabIndex={0}
+    >
+      <div className="p-4 bg-white border-b border-blue-100 rounded-t-2xl flex items-center justify-between">
+        <span className="text-lg font-bold font-sans text-gray-900">Virtual assistant</span>
+        <button onClick={onMinimize} className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 transition-colors" aria-label="Minimize chat">
+          <svg width="24" height="24" fill="none" stroke="#2563eb" strokeWidth="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /></svg>
+        </button>
       </div>
       <MessageList messages={messages} onButtonClick={(payload) => onSendMessage(payload)} />
-      <MessageInput onSendMessage={onSendMessage} isQueryInProgress={isQueryInProgress} onCancel={onCancel} />
+      {isBotTyping && (
+        <div className="px-6 pb-2 text-sm text-gray-500 animate-pulse" aria-live="polite">Bot is typing...</div>
+      )}
+      <div className="relative">
+        <MessageInput onSendMessage={onSendMessage} isQueryInProgress={isQueryInProgress} onCancel={onCancel} />
+      </div>
     </div>
   );
 };

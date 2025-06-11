@@ -19,4 +19,8 @@ RUN dotnet publish "AI.Chatbot.Server.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+# Copy development certificate
+COPY aspnetapp.pfx ./
+ENV ASPNETCORE_Kestrel__Certificates__Default__Password=!1234567890aA
+ENV ASPNETCORE_Kestrel__Certificates__Default__Path=/app/aspnetapp.pfx
 ENTRYPOINT ["dotnet", "AI.Chatbot.Server.dll"] 

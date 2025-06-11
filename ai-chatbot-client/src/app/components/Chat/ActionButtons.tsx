@@ -13,15 +13,22 @@ interface ActionButtonsProps {
 const ActionButtons: React.FC<ActionButtonsProps> = ({ buttons, onButtonClick }) => {
   return (
     <div className="flex flex-wrap gap-2 mt-2">
-      {buttons.map((button, index) => (
-        <button
-          key={index}
-          onClick={() => onButtonClick(button.payload)}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          {button.label}
-        </button>
-      ))}
+      {buttons.map((button, index) => {
+        const isPrimary = button.label.toLowerCase() === 'yes';
+        return (
+          <button
+            key={index}
+            onClick={() => onButtonClick(button.payload)}
+            className={`px-5 py-2 rounded-full font-semibold shadow transition-colors duration-200
+              ${isPrimary
+                ? 'bg-blue-600 text-white hover:bg-blue-700'
+                : 'bg-white text-blue-600 border border-blue-600 hover:bg-blue-50'}
+            `}
+          >
+            {button.label}
+          </button>
+        );
+      })}
     </div>
   );
 };

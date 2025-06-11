@@ -115,10 +115,10 @@ builder.Services.AddAuthorization(options =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowNextJs",
-        policyBuilder =>
+    options.AddPolicy("AllowFrontend",
+        builder =>
         {
-            policyBuilder.WithOrigins("http://localhost:3000") // Next.js dev server
+            builder.WithOrigins("http://localhost:3000")
                    .AllowAnyHeader()
                    .AllowAnyMethod()
                    .AllowCredentials();
@@ -134,11 +134,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 app.UseSerilogRequestLogging();
 
-app.UseCors("AllowNextJs");
+app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
 app.UseAuthorization();
