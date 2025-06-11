@@ -18,11 +18,22 @@ namespace AI.Chatbot.Server.Data
         public DateTime UploadedAt { get; set; } = DateTime.UtcNow;
     }
 
+    public class Prompt
+    {
+        public int Id { get; set; }
+        public required string Name { get; set; }
+        public required string Content { get; set; }
+        public bool IsActive { get; set; } = true;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+    }
+
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<InitialActionButton> InitialActionButtons { get; set; }
         public DbSet<KnowledgeDocument> KnowledgeDocuments { get; set; }
+        public DbSet<Prompt> Prompts { get; set; }
     }
 }
